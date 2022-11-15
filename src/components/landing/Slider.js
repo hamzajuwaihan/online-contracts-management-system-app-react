@@ -1,9 +1,14 @@
 import React from 'react'
-
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 const Slider = () => {
     return (
         <div className="container-fluid p-0 pb-5 wow fadeIn" >
-            <div className="owl-carousel header-carousel position-relative">
+            <OwlCarousel items={1}
+                loop={true}
+                
+                >
                 <div className="owl-carousel-item position-relative">
                     <img className="img-fluid" src="img/carousel-1.jpg" alt="" />
                     <div className="owl-carousel-inner">
@@ -18,7 +23,7 @@ const Slider = () => {
                         </div>
                     </div>
                 </div>
-                <div className="owl-carousel-item position-relative" >
+                <div className="owl-carousel-item position-relative">
                     <img className="img-fluid" src="img/carousel-2.jpg" alt="" />
                     <div className="owl-carousel-inner">
                         <div className="container">
@@ -32,7 +37,7 @@ const Slider = () => {
                         </div>
                     </div>
                 </div>
-                <div className="owl-carousel-item position-relative" >
+                <div className="owl-carousel-item position-relative">
                     <img className="img-fluid" src="img/carousel-3.jpg" alt="" />
                     <div className="owl-carousel-inner">
                         <div className="container">
@@ -46,7 +51,9 @@ const Slider = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+
+            </OwlCarousel>
+
         </div>
     )
 }
