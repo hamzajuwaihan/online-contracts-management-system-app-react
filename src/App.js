@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Container from './components/authentication/Container';
 import Login from './components/authentication/Login';
+import Register from './components/authentication/Register';
 import { Address } from './components/landing/Address';
 import Footer from './components/landing/Footer';
 import NavBar from './components/landing/NavBar';
@@ -22,7 +23,11 @@ function App() {
           </Container>
         } />
         <Route path="/register" element={
-          <h1>Register</h1>} />
+          <Container>
+            <Register />
+          </Container>
+
+        } />
         <Route path="*" element={
           <h1>404 Not Found</h1>
         } />
