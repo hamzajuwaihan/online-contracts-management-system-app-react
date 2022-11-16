@@ -1,13 +1,16 @@
 
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth";
 const Login = () => {
-
-
+    const [user, setUser] = useState('');
+    const auth = useAuth();
+    const navigate = useNavigate();
     const [formErrors, setFormErrors] = useState({});
-    let navigate = useNavigate();
+    const location = useLocation();
+    const redirectPath = location.state?.path || '/';
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -39,13 +42,19 @@ const Login = () => {
 
                     sessionStorage.setItem('username', result.data[0].name);
                     sessionStorage.setItem('useremail', result.data[0].email);
+                    sessionStorage.setItem('user_id', result.data[0].id);
+
+                    auth.login({
+                        email: result.data[0].email,
+                        name: result.data[0].name,
+                        role: result.data[0].role,
+                        id: result.data[0].id,
+                    });
 
 
-
-                    navigate('/');
-
-
+                    navigate(redirectPath, { replace: true });
                 } else {
+
                     navigate('/Register');
                 }
             })
@@ -81,22 +90,6 @@ const Login = () => {
         }
         return errors;
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return (
         <>
