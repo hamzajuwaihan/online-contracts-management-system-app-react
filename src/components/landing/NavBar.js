@@ -1,7 +1,9 @@
 import React from 'react'
+import { useAuth } from '../auth'
 import { Link, NavLink } from 'react-router-dom'
 
 const NavBar = () => {
+    const auth = useAuth();
     return (
         <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
             <a href="index.html" className="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
@@ -17,7 +19,10 @@ const NavBar = () => {
 
                     <a href="service.html" className="nav-item nav-link">Service</a>
                     <a href="project.html" className="nav-item nav-link">Project</a>
-                    <NavLink to="/profile"  className="nav-item nav-link">Profile</NavLink>
+                    {
+                        auth.user && (<NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>)
+                    }
+                    
                     <div className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div className="dropdown-menu bg-light m-0">
