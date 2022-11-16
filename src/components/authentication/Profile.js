@@ -1,9 +1,10 @@
 import React from 'react'
+import { useAuth } from '../auth';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 const Profile = () => {
-
+    const auth = useAuth();
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
@@ -121,9 +122,7 @@ const Profile = () => {
       </div>
     </div>
   </div>
-</div>
-
-    )
+</div>    )
 }
 
 export default Profile

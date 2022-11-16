@@ -3,7 +3,6 @@ import Header from "./Header";
 import Counter from "../landing/Counter";
 import About from "../landing/About";
 import { Employees } from "../landing/Employees";
-import Footer from "../landing/Footer";
 
 function AboutUs() {
   return (
@@ -12,7 +11,6 @@ function AboutUs() {
       <Counter />
       <About />
       <Employees />
-      <Footer />
     </>
   );
 }
