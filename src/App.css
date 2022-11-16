@@ -1,0 +1,28 @@
+.login{
+    background-color: #32C36C;
+    color: white;
+}
+.login.active {
+    background-color: orange;
+    border: 0;
+    
+}
+a.active{
+    background-color: orange !important;
+    color: white;
+}
+
+@media screen and (max-width: 990px) {
+    .login {
+        
+        padding: 0 !important;
+        background-color: transparent !important;
+        color: black !important;
+        border: 0;
+        text-decoration: none;
+        text-align: left;
+
+    }
+    
+    
+}

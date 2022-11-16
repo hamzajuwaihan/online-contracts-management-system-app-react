@@ -1,5 +1,7 @@
 import React from 'react'
-
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 const Testimonials = () => {
     return (
         <div className="container-xxl py-5">
@@ -8,10 +10,10 @@ const Testimonials = () => {
                     <h6 className="text-primary">Testimonial</h6>
                     <h1 className="mb-4">What Our Clients Say!</h1>
                 </div>
-                <div className="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <OwlCarousel items={1} className="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s" loop={true} autoplay={true}>
                     <div className="testimonial-item text-center">
                         <div className="testimonial-img position-relative">
-                            <img className="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-1.jpg" />
+                            <img className="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-1.jpg" style={{ height: 100, width: 100 }} alt="the person who testify"/>
                             <div className="btn-square bg-primary rounded-circle">
                                 <i className="fa fa-quote-left text-white"></i>
                             </div>
@@ -24,7 +26,7 @@ const Testimonials = () => {
                     </div>
                     <div className="testimonial-item text-center">
                         <div className="testimonial-img position-relative">
-                            <img className="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-2.jpg" />
+                            <img className="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-2.jpg" style={{ height: 100, width: 100 }} alt="the person who testify"/>
                             <div className="btn-square bg-primary rounded-circle">
                                 <i className="fa fa-quote-left text-white"></i>
                             </div>
@@ -37,7 +39,7 @@ const Testimonials = () => {
                     </div>
                     <div className="testimonial-item text-center">
                         <div className="testimonial-img position-relative">
-                            <img className="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-3.jpg" />
+                            <img className="img-fluid rounded-circle mx-auto mb-5" src="img/testimonial-3.jpg" alt="the person who testify" style={{ height: 100, width: 100 }} />
                             <div className="btn-square bg-primary rounded-circle">
                                 <i className="fa fa-quote-left text-white"></i>
                             </div>
@@ -48,7 +50,8 @@ const Testimonials = () => {
                             <span className="fst-italic">Profession</span>
                         </div>
                     </div>
-                </div>
+                </OwlCarousel>
+                
             </div>
         </div>
     )
