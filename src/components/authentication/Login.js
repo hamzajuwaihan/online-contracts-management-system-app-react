@@ -1,9 +1,10 @@
-import React from 'react'
-import { useState } from "react";
+
+import React,{ useEffect, useState } from "react";
 import { Link, NavLink } from 'react-router-dom'
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 const Login = () => {
+
 
     const [formErrors, setFormErrors] = useState({});
 let navigate=useNavigate();
@@ -96,6 +97,7 @@ const submitForm=(e)=>{
 
 
 
+
     return (
         <>
             <div className='col-6' style={{ height: "100%" }}>
@@ -110,6 +112,7 @@ const submitForm=(e)=>{
 
                 <div className="tab-content" >
                     <div className="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+
                         <form className='mt-5'  onSubmit={submitForm}>
                             <div class="form-floating mb-3">
                             <input id="email" type="email"
@@ -119,9 +122,11 @@ const submitForm=(e)=>{
                         value={data.email}
                         
                         autocomplete="email"/>
+
                                 <label htmlFor="floatingInput">Email address</label>
                             </div>
                             <p className="errors">{formErrors.email}</p>
+
 
                             <div class="form-floating mb-3 mt-3">
                             <input id="password" type="password"
@@ -136,7 +141,7 @@ const submitForm=(e)=>{
 
 
                             <div className='d-grid'>
-                                <button type="submit" className="btn-lg btn btn-primary btn-block mb-4">Sign in</button>
+                                <button type="submit" className="btn-lg btn btn-primary btn-block mb-4" onClick={handleSubmit}>Sign in</button>
                             </div>
                             <div className="text-center">
                                 <p>Not a member? <Link to="/register">Register</Link></p>
