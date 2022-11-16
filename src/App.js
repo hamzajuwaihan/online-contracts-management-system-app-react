@@ -37,8 +37,8 @@ function App() {
           </Container>
 
         } />
-        <Route path="*" element={
-          <h1>404 Not Found</h1>
+        <Route path="/Profile" element={
+        <Profile/>
         } />
       </Routes>
       <Footer />
