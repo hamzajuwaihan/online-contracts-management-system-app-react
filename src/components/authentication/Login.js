@@ -1,28 +1,103 @@
-import React, { useEffect, useState } from 'react'
+
+import React,{ useEffect, useState } from "react";
 import { Link, NavLink } from 'react-router-dom'
-
+import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 const Login = () => {
-    const [user, setUser] = useState({
-        email: '',
-        password: '',
-    });
 
-    const handleEmail = (e) => {
-        setUser({
-            ...user,
-            email: e.target.value
-        });
+
+    const [formErrors, setFormErrors] = useState({});
+let navigate=useNavigate();
+const [data,setData]=useState({
+    email:"",
+    password:"",
+  }) 
+
+  const handleChange=(e)=>{
+    setData({...data,[e.target.name]:e.target.value})
+    setFormErrors(validate(data));
+
+   }
+
+
+
+const submitForm=(e)=>{
+    e.preventDefault();
+
+
+    axios.post('http://localhost/API_7/log.php',data)
+    
+    .then((result)=>{
+    console.log(result.data);
+    console.log(result.data[0].role)
+
+               if(result.data.length==0){
+                const elem = document.getElementById("errorMassage");
+                elem.innerHTML = "Invalied Email and Password";
+            
+                 }else if(result.data.length!==0 && result.data[0].role==='user'){
+
+                    sessionStorage.setItem('username', result.data[0].name);
+                    sessionStorage.setItem('useremail', result.data[0].email);
+                   
+                    
+
+                    navigate('/');
+
+                   
+    }else{
+        navigate('/Register');
     }
-    const handlePassword = (e) => {
-        setUser({
-            ...user,
-            password: e.target.value
-        });
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(user);
-    }
+    })
+
+
+    
+
+}
+   
+
+
+
+    const validate = (values) => {
+        const errors = {};
+        const regex =
+          /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/;
+    
+        if (!values.email) {
+          errors.email = "Email is required";
+        } else if (!regex.test(values.email)) {
+          errors.email = "Please enter a valid email";
+        }
+    
+        const pregex = /^[0-9]*$/;
+    
+
+        if (!values.password) {
+          errors.password = "Password is required";
+        } else if (values.password.length < 7) {
+          errors.password = "Password must be 8 characters or more";
+        } else if (values.password.length > 12) {
+          errors.password = "Password must be 12 characters or less";
+        }
+        return errors;
+      };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <>
             <div className='col-6' style={{ height: "100%" }}>
@@ -37,16 +112,32 @@ const Login = () => {
 
                 <div className="tab-content" >
                     <div className="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                        <form className='mt-5'>
-                            <div className="form-floating mb-3">
-                                <input type="email" onChange={handleEmail} value={user.email} className="form-control" id="floatingInput" placeholder="name@example.com" />
+
+                        <form className='mt-5'  onSubmit={submitForm}>
+                            <div class="form-floating mb-3">
+                            <input id="email" type="email"
+                            className="form-control @error('email') is-invalid @enderror" name="email" required
+                      
+                    onChange={handleChange}
+                        value={data.email}
+                        
+                        autocomplete="email"/>
+
                                 <label htmlFor="floatingInput">Email address</label>
                             </div>
+                            <p className="errors">{formErrors.email}</p>
 
-                            <div className="form-floating mb-3 mt-3">
-                                <input type="password" onChange={handlePassword} value={user.password} className="form-control" id="floatingPassword" placeholder="Password" />
+
+                            <div class="form-floating mb-3 mt-3">
+                            <input id="password" type="password"
+                            className="form-control @error('password') is-invalid @enderror"
+                            name="password" required
+                            onChange={handleChange}
+                            value={data.password}
+                            autocomplete="new-password"/>
                                 <label htmlFor="floatingPassword">Password</label>
                             </div>
+                            <p className="errors">{formErrors.password}</p>  
 
 
                             <div className='d-grid'>
