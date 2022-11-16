@@ -47,10 +47,12 @@ const Login = () => {
                     auth.login({
                         email: result.data[0].email,
                         name: result.data[0].name,
+                        role: result.data[0].role,
+                        id: result.data[0].id,
                     });
 
-                    
-                    navigate(redirectPath , { replace: true });
+
+                    navigate(redirectPath, { replace: true });
                 } else {
 
                     navigate('/Register');
