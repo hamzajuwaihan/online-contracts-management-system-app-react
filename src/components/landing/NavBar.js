@@ -16,6 +16,7 @@ const NavBar = () => {
                     <a href="about.html" className="nav-item nav-link">About</a>
                     <a href="service.html" className="nav-item nav-link">Service</a>
                     <a href="project.html" className="nav-item nav-link">Project</a>
+                    <NavLink to="/profile"  className="nav-item nav-link">Profile</NavLink>
                     <div className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div className="dropdown-menu bg-light m-0">
