@@ -28,8 +28,7 @@ function App() {
             <RequireAuth>
               <Profile />
             </RequireAuth>
-
-          } />
+        }/>
           <Route path="/" element={<Welcome />} />
           <Route
             path="/login"
@@ -52,6 +51,7 @@ function App() {
         </Routes>
         <Footer />
       </AuthProvider>
+
     </>
   );
 }
