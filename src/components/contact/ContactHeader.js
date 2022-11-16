@@ -1,12 +1,13 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-function Header() {
+function ContactHeader() {
   return (
     <>
+      {/* Page Header Start */}
       <div className="container-fluid page-header py-5 mb-5">
         <div className="container py-5">
-          <h1 className="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+          <h1 className="display-3 text-white mb-3 animated slideInDown">Contact</h1>
           <nav aria-label="breadcrumb animated slideInDown">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
@@ -21,8 +22,9 @@ function Header() {
           </nav>
         </div>
       </div>
+      {/* Page Header End */}
     </>
   );
 }
 
-export default Header;
+export default ContactHeader;

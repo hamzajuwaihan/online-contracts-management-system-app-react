@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { useAuth } from '../auth'
+import { Link, NavLink } from 'react-router-dom'
 
 const NavBar = () => {
     const auth = useAuth();
@@ -14,8 +14,8 @@ const NavBar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="/" className="nav-item nav-link active">Home</a>
-                    <a href="/about" className="nav-item nav-link">About</a>
+                    <NavLink to="/" className="nav-item nav-link active">Home</NavLink>
+                    <Link to="/about" className="nav-item nav-link">About</Link>
 
                     <a href="service.html" className="nav-item nav-link">Service</a>
                     <a href="project.html" className="nav-item nav-link">Project</a>
@@ -30,10 +30,10 @@ const NavBar = () => {
                             <a href="quote.html" className="dropdown-item">Free Quote</a>
                             <a href="team.html" className="dropdown-item">Our Team</a>
                             <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                            <a href="404.html" className="dropdown-item">404 Page</a>
+                            <Link to="*" className="dropdown-item">404 Page</Link>
                         </div>
                     </div>
-                    <a href="contact.html" className="nav-item nav-link">Contact</a>
+                    <Link to="/contact" className="nav-item nav-link">Contact</Link>
                     <NavLink to="/login" className=" rounded-0 py-4 px-lg-5 d-lg-block login">Login<i className="fa fa-arrow-right ms-3"></i></NavLink>
                 </div>
 
