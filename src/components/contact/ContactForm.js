@@ -1,6 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function ContactForm() {
+  let navigate = useNavigate();
+
+  const [formErrors, setFormErrors] = useState({});
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+    setFormErrors(validate(data));
+  };
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(data));
+    if (Object.keys(validate(data)).length !== 0) {
+      return;
+    }
+    axios.post("http://localhost/API_7/msg.php", data).then(() => {
+      setData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      })
+      navigate("/")
+
+    })
+   
+  };
+
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/;
+
+    if (!values.email) {
+      errors.email = "Email is required";
+    } else if (!regex.test(values.email)) {
+      errors.email = "Please enter a valid email";
+    }
+
+    // const pregex = /^[0-9]*$/;
+
+    if (!values.message) {
+      errors.message = "message is required";
+    }
+
+    if (!values.subject) {
+      errors.subject = "subject is required";
+    }
+    if (!values.name) {
+      errors.name = "name is required";
+    }
+
+    return errors;
+  };
+
   return (
     <div>
       {/* Contact Start */}
@@ -11,36 +74,63 @@ function ContactForm() {
               <div className="p-lg-5 ps-lg-0">
                 <h6 className="text-primary">Contact Us</h6>
                 <h1 className="mb-4">Feel Free To Contact Us</h1>
-                
-                <form>
+
+                <form onSubmit={submitForm}>
                   <div className="row g-3">
                     <div className="col-md-6">
                       <div className="form-floating">
-                        <input type="text" className="form-control" id="name" placeholder="Your Name" />
+                        <input
+                          name="name"
+                          type="text"
+                          onChange={handleChange}
+                          className="form-control"
+                          id="name"
+                          placeholder="Your Name"
+                        />
+                        <p className="errors">{formErrors.name}</p>
                         <label htmlFor="name">Your Name</label>
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-floating">
-                        <input type="email" className="form-control" id="email" placeholder="Your Email" />
+                        <input
+                          name="email"
+                          type="email"
+                          onChange={handleChange}
+                          className="form-control"
+                          id="email"
+                          placeholder="Your Email"
+                        />
+                        <p className="errors">{formErrors.email}</p>
                         <label htmlFor="email">Your Email</label>
                       </div>
                     </div>
                     <div className="col-12">
                       <div className="form-floating">
-                        <input type="text" className="form-control" id="subject" placeholder="Subject" />
+                        <input
+                          name="subject"
+                          type="text"
+                          onChange={handleChange}
+                          className="form-control"
+                          id="subject"
+                          placeholder="Subject"
+                        />
+                        <p className="errors">{formErrors.subject}</p>
                         <label htmlFor="subject">Subject</label>
                       </div>
                     </div>
                     <div className="col-12">
                       <div className="form-floating">
                         <textarea
+                          name="message"
+                          onChange={handleChange}
                           className="form-control"
                           placeholder="Leave a message here"
                           id="message"
                           style={{ height: 100 }}
                           defaultValue={""}
                         />
+                        <p className="errors">{formErrors.message}</p>
                         <label htmlFor="message">Message</label>
                       </div>
                     </div>
@@ -62,8 +152,8 @@ function ContactForm() {
                   frameBorder={0}
                   allowFullScreen
                   aria-hidden="false"
-                                  tabIndex={0}
-                                  title="d"
+                  tabIndex={0}
+                  title="d"
                 />
               </div>
             </div>
