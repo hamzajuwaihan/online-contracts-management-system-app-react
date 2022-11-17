@@ -29,7 +29,7 @@ const NavBar = () => {
                             <a href="feature.html" className="dropdown-item">Feature</a>
                             <a href="quote.html" className="dropdown-item">Free Quote</a>
                             <a href="team.html" className="dropdown-item">Our Team</a>
-                            <a href="testimonial.html" className="dropdown-item">Testimonial</a>
+                            <Link to="UserPage" className="dropdown-item">UserPage</Link>
                             <Link to="*" className="dropdown-item">404 Page</Link>
                         </div>
                     </div>
