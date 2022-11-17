@@ -33,7 +33,7 @@ const Profile = () => {
 
         axios.put(`http://localhost/API_7/reg.php/${id}`, inputs).then(function(response){
             console.log(response.data);
-            navigate('/');
+            navigate('Profile');
         });
         
     }

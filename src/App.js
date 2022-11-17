@@ -14,6 +14,7 @@ import NavBar from "./components/landing/NavBar";
 import Welcome from "./components/landing/Welcome";
 import Notfound from "./components/404/Notfound";
 import Contact from "./components/contact/Contact";
+import UserPage from "./components/UserPage";
 
 
 function App() {
@@ -46,6 +47,15 @@ function App() {
               </Container>
             }
           />
+
+          <Route
+          path="/UserPage"
+          element={
+          
+              <UserPage/>
+            
+          }
+        />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Notfound />} />
         </Routes>

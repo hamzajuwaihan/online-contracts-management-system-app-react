@@ -69,7 +69,15 @@ a.active{
     border: 0;
     margin-bottom: 1rem;
 }
-
+label{
+    color:black;
+    margin-top: 10px;
+}
+.form-control{
+    margin-top: 8px;
+    padding: 5px;
+    border-color: black;
+}
 @media screen and (max-width: 990px) {
     .login {
         
