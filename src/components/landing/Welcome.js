@@ -4,9 +4,10 @@ import ChooseUs from './ChooseUs'
 import Contracts from './Contracts'
 import Counter from './Counter'
 import { Employees } from './Employees'
-import Footer from './Footer'
 import Slider from './Slider'
 import Testimonials from './Testimonials'
+import Youtube from './Youtube'
+
 
 const Welcome = () => {
     return (
@@ -16,6 +17,7 @@ const Welcome = () => {
             <About />
             <ChooseUs />
             <Contracts />
+            <Youtube />
             <Employees />
             <Testimonials />
         </>
