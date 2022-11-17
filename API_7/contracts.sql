@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2022 at 07:50 AM
+-- Generation Time: Nov 17, 2022 at 08:44 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,8 +42,20 @@ CREATE TABLE `contract` (
   `company_name` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `company_phone` varchar(50) NOT NULL,
-  `liaison _officer_name` varchar(50) NOT NULL
+  `liaison_officer_name` varchar(50) NOT NULL,
+  `status` enum('EXPIRED','APPROVED','REJECTED','WAITING') DEFAULT 'WAITING'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contract`
+--
+
+INSERT INTO `contract` (`contract_id`, `contract_name`, `Signing_date`, `exprtion_date`, `total_cost`, `amount`, `items`, `Legal_officer_name`, `employee_id`, `warranty_start_date`, `warranty__end_date`, `company_name`, `address`, `company_phone`, `liaison_officer_name`, `status`) VALUES
+(2, 'ee', '2022-11-03', '2022-11-24', 3, 3, 'laptop', 'mohammed aldabee', 1, '2022-11-23', '2022-11-24', 'student', 'jordan', '0000000000', 'eeeeee', 'WAITING'),
+(3, 'eeeee', '2022-11-01', '2022-12-01', 1, 1, 'laptop', 'mohammed aldabee', 1, '2022-11-16', '2022-11-27', 'student', 'jordan', '9999999', 'ffffffff', 'WAITING'),
+(4, 'car', '2022-12-01', '2022-12-21', 1, 1, 'laptop', 'mohammed aldabee', 1, '2022-11-30', '2022-11-30', 'eeeeeeeeeee', 'ddddddddddddddd', '2222222222', 'sssssssssssss', 'WAITING'),
+(5, 'ddddd', '2022-11-10', '2022-11-23', 3, 3, 'ddddddddd', 'dddddddddddddd', 1, '2022-11-11', '2022-11-01', 'ddddddddddd', 'dddddddddddddddddd', 'ddddddddddddddddd', 'ddddddddddddddddddd', 'WAITING'),
+(6, 'ee', '2022-11-03', '2022-11-24', 3, 3, 'laptop', 'mohammed aldabee', 1, '2022-11-23', '2022-11-24', 'student', 'jordan', '0000000000', 'eeeeee', 'WAITING');
 
 -- --------------------------------------------------------
 
@@ -77,7 +89,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `department_id`, `phone`, `role`, `password`) VALUES
-(1, 'Ziad Wassel Abazeed', 'ziad.ab2017@gmail.com', NULL, '+962 2787987915', 'user', 'h15234684'),
+(1, 'Ziad Wassel', 'ziad.ab@gmail.com', NULL, '+962 2787987915', 'user', 'h15234684'),
 (12, 'Ziad Wassel Abazeed', 'zi@gmail.com', NULL, '+962 2787987915', 'user', 'h15234684');
 
 --
@@ -88,7 +100,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `department_id`, `phone`, `role`, `p
 -- Indexes for table `contract`
 --
 ALTER TABLE `contract`
-  ADD PRIMARY KEY (`contract_id`);
+  ADD PRIMARY KEY (`contract_id`),
+  ADD KEY `contract_ibfk_1` (`employee_id`);
 
 --
 -- Indexes for table `department`
@@ -112,7 +125,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contract`
 --
 ALTER TABLE `contract`
-  MODIFY `contract_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contract_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -129,6 +142,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `contract`
+--
+ALTER TABLE `contract`
+  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`
