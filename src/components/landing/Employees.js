@@ -12,7 +12,7 @@ export const Employees = () => {
                     <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div className="team-item rounded overflow-hidden">
                             <div className="d-flex">
-                                <img className="img-fluid w-75" src="img/team-1.jpg" alt="" />
+                                <img className="img-fluid w-75" src="img/iages .jpg" alt="" />
                                 <div className="team-social w-25">
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i className="fab fa-twitter"></i></a>
@@ -28,7 +28,7 @@ export const Employees = () => {
                     <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div className="team-item rounded overflow-hidden">
                             <div className="d-flex">
-                                <img className="img-fluid w-75" src="img/team-2.jpg" alt="" />
+                                <img className="img-fluid w-75" src="img/Elon_Musk_Royal_Society_(crop2).jpg" alt="" />
                                 <div className="team-social w-25">
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i className="fab fa-twitter"></i></a>
@@ -44,7 +44,7 @@ export const Employees = () => {
                     <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div className="team-item rounded overflow-hidden">
                             <div className="d-flex">
-                                <img className="img-fluid w-75" src="img/team-3.jpg" alt="" />
+                                <img className="img-fluid w-75" src="img/wnload.jpg" alt="" />
                                 <div className="team-social w-25">
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i className="fab fa-twitter"></i></a>

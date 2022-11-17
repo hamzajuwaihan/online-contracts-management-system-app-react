@@ -22,14 +22,18 @@ const NavBar = () => {
                     {
                         auth.user && (<NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>)
                     }
-                    
+                    {
+                        auth.user && (<NavLink to="/UserPage" className="nav-item nav-link">Contracts</NavLink>)
+
+                    }
+
                     <div className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div className="dropdown-menu bg-light m-0">
                             <a href="feature.html" className="dropdown-item">Feature</a>
                             <a href="quote.html" className="dropdown-item">Free Quote</a>
                             <a href="team.html" className="dropdown-item">Our Team</a>
-                            <Link to="UserPage" className="dropdown-item">UserPage</Link>
+                            <a href="testimonial.html" className="dropdown-item">Testimonial</a>
                             <Link to="*" className="dropdown-item">404 Page</Link>
                         </div>
                     </div>

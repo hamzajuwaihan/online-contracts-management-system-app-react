@@ -2,6 +2,8 @@ import React from 'react'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+
 const Slider = () => {
     return (
         <div className="container-fluid p-0 pb-5 wow fadeIn" >
@@ -10,7 +12,7 @@ const Slider = () => {
                 autoplay={true}
                 >
                 <div className="owl-carousel-item position-relative">
-                    <img className="img-fluid" src="img/carousel-1.jpg" alt="" />
+                    <img className="img-fluid" src="./img/Formulation-of-legal-contracts.jpg" alt="" />
                     <div className="owl-carousel-inner">
                         <div className="container">
                             <div className="row justify-content-start">
@@ -24,7 +26,7 @@ const Slider = () => {
                     </div>
                 </div>
                 <div className="owl-carousel-item position-relative">
-                    <img className="img-fluid" src="img/carousel-2.jpg" alt="" />
+                    <img className="img-fluid" src="img/261ltext.jpg" alt="" />
                     <div className="owl-carousel-inner">
                         <div className="container">
                             <div className="row justify-content-start">
@@ -38,7 +40,7 @@ const Slider = () => {
                     </div>
                 </div>
                 <div className="owl-carousel-item position-relative">
-                    <img className="img-fluid" src="img/carousel-3.jpg" alt="" />
+                    <img className="img-fluid" src="img/fgdc.jpg" alt="" />
                     <div className="owl-carousel-inner">
                         <div className="container">
                             <div className="row justify-content-start">

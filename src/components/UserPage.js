@@ -4,10 +4,11 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./auth";
+import SingleContract from "./SingleContract";
 
 export default function UserPage() {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const auth = useAuth();
   const close = useRef(null)
 
@@ -18,10 +19,10 @@ export default function UserPage() {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setInputs((values) => ({ ...values, [name]: value ,employee_id:id}));
+    setInputs((values) => ({ ...values, [name]: value, employee_id: id }));
     console.log(inputs)
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -38,20 +39,20 @@ export default function UserPage() {
 
   const [contracts, setUsers] = useState([]);
   useEffect(() => {
-      getUsers();
+    getUsers();
   }, []);
 
   function getUsers() {
-      axios.get('http://localhost/API_7/contract.php').then(function(response) {
-          console.log(response.data);
-          setUsers(response.data);
-      });
+    axios.get('http://localhost/API_7/contract.php').then(function (response) {
+      console.log(response.data);
+      setUsers(response.data);
+    });
   }
 
 
 
 
-
+  
 
 
 
@@ -95,54 +96,9 @@ export default function UserPage() {
         </div>
         <div className="row">
 
-                    {contracts.map((contract, key) =>
-          <div className="col-xl-3 col-sm-6">
-            <div className="card">
-              <div className="card-body">
-                <div className="dropdown float-end">
-                 
-                </div>
-                <div className="d-flex align-items-center">
-                  <div className="flex-1 ms-3">
-                    <h5 className="font-size-16 mb-1">
-                      <a href="#" className="text-dark">
-                       {contract.contract_name}
-                      </a>
-                    </h5>
-                    <span className="badge badge-soft-success mb-0">
-                      Full Stack Developer
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-3 pt-1">
-                  <p className="text-muted mb-0">
-                    <i className="mdi mdi-phone font-size-15 align-middle pe-2 text-primary" />{" "}
-                {contract.Legal_officer_name}
-                  </p>
-                  <p className="text-muted mb-0 mt-2">
-                    <i className="mdi mdi-email font-size-15 align-middle pe-2 text-primary" />{" "}
-                    PhyllisGatlin@spy.com
-                  </p>
-                  <p className="text-muted mb-0 mt-2">
-                    <i className="mdi mdi-google-maps font-size-15 align-middle pe-2 text-primary" />{" "}
-                    52 Ilchester MYBSTER 9WX
-                  </p>
-                </div>
-                <div className="d-flex gap-2 pt-4">
-                  <button
-                    type="button"
-                    className="btn btn-soft-primary btn-sm w-50"
-                  >
-                    <i className="bx bx-user me-1" /> Profile
-                  </button>
-                  <button type="button" className="btn btn-primary btn-sm w-50">
-                    <i className="bx bx-message-square-dots me-1" /> Contact
-                  </button>
-                  
-                </div>
-              </div>
-            </div>
-          </div>)}
+          {contracts.map((contract, key) =>
+            {return contract.status === "APPROVED" ? <SingleContract key={key} contract={contract} />:null}
+          )}
         </div>
       </div>
 
@@ -156,11 +112,11 @@ export default function UserPage() {
           aria-hidden="true"
         >
           <div className="modal-dialog">
-   
+
             <div className="modal-content">
-            
+
               <div className="modal-header">
-              
+
                 <h1 className="modal-title fs-5" id="exampleModalLabel">
                   Add new Contract
                 </h1>
@@ -172,7 +128,7 @@ export default function UserPage() {
                 />
               </div>
               <div className="modal-body">
-        
+
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">contract name:</label>
                   <input
@@ -183,7 +139,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.contract_name}
-                    
+
                   />
                 </div>
 
@@ -197,7 +153,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.Signing_date}
-                    
+
                   />
                 </div>
 
@@ -211,7 +167,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.Signing_date}
-                    
+
                   />
                 </div>
 
@@ -225,7 +181,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.total_cost}
-                    
+
                   />
                 </div>
 
@@ -239,7 +195,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.amount}
-                    
+
                   />
                 </div>
 
@@ -253,7 +209,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.items}
-                    
+
                   />
                 </div>
 
@@ -267,7 +223,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.Legal_officer_name}
-                    
+
                   />
                 </div>
 
@@ -283,7 +239,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.warranty_start_date}
-                    
+
                   />
                 </div>
 
@@ -297,7 +253,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.warranty__end_date}
-                    
+
                   />
                 </div>
 
@@ -311,7 +267,7 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.company_name}
-                    
+
                   />
                 </div>
 
@@ -326,7 +282,7 @@ export default function UserPage() {
                     onChange={handleChange}
 
                     value={inputs.address}
-                    
+
                   />
                 </div>
 
@@ -340,10 +296,10 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.company_phone}
-                
+
                   />
                 </div>
-              
+
 
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">
@@ -357,10 +313,10 @@ export default function UserPage() {
                     aria-describedby="emailHelp"
                     onChange={handleChange}
                     value={inputs.liaison_officer_name}
-            
+
                   />
                 </div>
-                <input type="hidden" name="employee_id"  value={id}/>
+                <input type="hidden" name="employee_id" value={id} />
               </div>
               <div className="modal-footer">
                 <button
@@ -370,18 +326,18 @@ export default function UserPage() {
                 >
                   Close
                 </button>
-                <button type="submit" className="btn btn-primary" 
+                <button type="submit" className="btn btn-primary"
                 >
                   Add
                 </button>
-               
+
               </div>
             </div>
           </div>
         </div>
-        </form>
+      </form>
 
-    
+
     </div>
   );
 }
