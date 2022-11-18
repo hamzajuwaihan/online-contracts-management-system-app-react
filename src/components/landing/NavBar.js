@@ -23,22 +23,16 @@ const NavBar = () => {
                     {
                         auth.user && (<NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>)
                     }
-                    {/* {
-                        auth.user.role === "user" ? (<NavLink to="/UserPage" className="nav-item nav-link">Contracts</NavLink>): null
 
-                    } */}
                     {
                         auth.user && (auth.user.role === "admin" ? <NavLink to="/dashboard" className="nav-item nav-link">Dashboard</NavLink> : null)
 
                     }
-                    {/* {
-                        auth.user && (auth.user.role === "user"? <NavLink to="/UserPage" className="nav-item nav-link">Contracts</NavLink>:null) 
+                    {
+                        auth.user && (auth.user.role === "user" ? <NavLink to="/UserPage" className="nav-item nav-link">Contracts</NavLink> : null)
 
-                    } */}
-                    {/* {
-                        auth.user.role === "admin" ? (<NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>): null
-                        <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
-                    } */}
+                    }
+
 
                     <div className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>

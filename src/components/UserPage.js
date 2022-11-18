@@ -37,15 +37,15 @@ export default function UserPage() {
   };
 
 
-  const [contracts, setUsers] = useState([]);
+  const [contracts, setContracts] = useState([]);
   useEffect(() => {
-    getUsers();
+    getContracts();
   }, []);
 
-  function getUsers() {
+  function getContracts() {
     axios.get('http://localhost/API_7/contract.php').then(function (response) {
       console.log(response.data);
-      setUsers(response.data);
+      setContracts(response.data);
     });
   }
 
@@ -165,7 +165,7 @@ export default function UserPage() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     onChange={handleChange}
-                    value={inputs.Signing_date}
+                    value={inputs.exprtion_date}
 
                   />
                 </div>

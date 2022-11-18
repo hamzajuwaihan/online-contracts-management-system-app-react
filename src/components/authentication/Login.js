@@ -63,7 +63,7 @@ const Login = () => {
                         role: result.data[0].role,
                         id: result.data[0].id,
                     });
-                    navigate('/dashoard', { replace: true });
+                    navigate('/dashboard', { replace: true });
 
                 } else {
 
