@@ -45,36 +45,13 @@ const SingleContract = ({ contract }) => {
                             </p>
                         </div>
                         <div className="d-flex gap-2 pt-4">
-                            {/* <button
-                                type="button"
-                                className="btn btn-soft-primary btn-sm w-50"
-                            >
-                                
-
-                            </button> */}
                             <Button variant="primary" onClick={handleShowCompany}>
-                                <i className="bx bx-user me-1" /> Company
+                                <i className="bx bx-user me-1" /> Contract Details
                             </Button>
 
-                            <Modal show={showCompany} onHide={handleCloseCompany}>
-                                <Modal.Header closeButton>
-                                    <Modal.Title>{contract.company_name}</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>
-                                    <p>Company Phone: {contract.company_phone}</p>
-                                    <p>Company Address: {contract.address}</p>
-                                </Modal.Body>
-                                <Modal.Footer>
-                                    <Button variant="secondary" onClick={handleCloseCompany}>
-                                        Close
-                                    </Button>
-                                    <Button variant="primary" onClick={handleCloseCompany}>
-                                        Save Changes
-                                    </Button>
-                                </Modal.Footer>
-                            </Modal>
+
                             <Button variant="secondary" onClick={handleShowContract}>
-                                <i className="bx bx-message-square-dots me-1" /> Contract Details
+                                <i className="bx bx-message-square-dots me-1" /> Company Details
                             </Button>
 
                             <Modal show={showContract} onHide={handleCloseContract}>
@@ -96,9 +73,36 @@ const SingleContract = ({ contract }) => {
                             </Modal>
 
                         </div>
+
                     </div>
                 </div>
+
             </div>
+            <Modal show={showCompany} onHide={handleCloseCompany} >
+                <Modal.Header closeButton>
+                    <Modal.Title>{contract.contract_name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body >
+                    <p>Contract name: {contract.contract_name}</p>
+                    <p>Contract Signing date: {contract.Signing_date}</p>
+                    <p>Contract Exprtion date: {contract.exprtion_date}</p>
+                    <p>Contract Total cost: ${contract.total_cost}</p>
+                    <p>Amount: {contract.amount}</p>
+                    <p>Items: {contract.items}</p>
+                    <p>Legal officer name: {contract.Legal_officer_name}</p>
+                    <p>Warranty start date: {contract.warranty_start_date}</p>
+                    <p>Warranty end date: {contract.warranty__end_date}</p>
+                    <p>Liaison officer name: {contract.liaison_officer_name}</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseCompany}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleCloseCompany}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }

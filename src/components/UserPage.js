@@ -52,7 +52,7 @@ export default function UserPage() {
 
 
 
-  
+
 
 
 
@@ -96,8 +96,7 @@ export default function UserPage() {
         </div>
         <div className="row">
 
-          {contracts.map((contract, key) =>
-            {return contract.status === "APPROVED" ? <SingleContract key={key} contract={contract} />:null}
+          {contracts.map((contract, key) => { return contract.status === "APPROVED" ? <SingleContract key={key} contract={contract} /> : null }
           )}
         </div>
       </div>

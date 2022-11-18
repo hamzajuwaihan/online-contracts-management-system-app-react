@@ -15,6 +15,7 @@ import Welcome from "./components/landing/Welcome";
 import Notfound from "./components/404/Notfound";
 import Contact from "./components/contact/Contact";
 import UserPage from "./components/UserPage";
+import Dashboard from "./components/Dashboard";
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
             <RequireAuth>
               <Profile />
             </RequireAuth>
-        }/>
+          } />
           <Route path="/" element={<Welcome />} />
           <Route
             path="/login"
@@ -49,13 +50,21 @@ function App() {
           />
 
           <Route
-          path="/UserPage"
-          element={
-          
-              <UserPage/>
-            
-          }
-        />
+            path="/UserPage"
+            element={
+
+              <UserPage />
+
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+
+              <Dashboard />
+
+            }
+          />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Notfound />} />
         </Routes>

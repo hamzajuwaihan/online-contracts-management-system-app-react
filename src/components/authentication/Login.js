@@ -53,6 +53,18 @@ const Login = () => {
 
 
                     navigate(redirectPath, { replace: true });
+                } else if (result.data.length !== 0 && result.data[0].role === 'admin') {
+                    sessionStorage.setItem('username', result.data[0].name);
+                    sessionStorage.setItem('useremail', result.data[0].email);
+                    sessionStorage.setItem('user_id', result.data[0].id);
+                    auth.login({
+                        email: result.data[0].email,
+                        name: result.data[0].name,
+                        role: result.data[0].role,
+                        id: result.data[0].id,
+                    });
+                    navigate('/dashoard', { replace: true });
+
                 } else {
 
                     navigate('/Register');

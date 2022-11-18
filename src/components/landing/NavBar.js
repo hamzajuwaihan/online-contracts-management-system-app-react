@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 const NavBar = () => {
     const auth = useAuth();
+    console.log(auth.user)
     return (
         <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
             <a href="index.html" className="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
@@ -22,10 +23,22 @@ const NavBar = () => {
                     {
                         auth.user && (<NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>)
                     }
+                    {/* {
+                        auth.user.role === "user" ? (<NavLink to="/UserPage" className="nav-item nav-link">Contracts</NavLink>): null
+
+                    } */}
                     {
-                        auth.user && (<NavLink to="/UserPage" className="nav-item nav-link">Contracts</NavLink>)
+                        auth.user && (auth.user.role === "admin" ? <NavLink to="/dashboard" className="nav-item nav-link">Dashboard</NavLink> : null)
 
                     }
+                    {/* {
+                        auth.user && (auth.user.role === "user"? <NavLink to="/UserPage" className="nav-item nav-link">Contracts</NavLink>:null) 
+
+                    } */}
+                    {/* {
+                        auth.user.role === "admin" ? (<NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>): null
+                        <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
+                    } */}
 
                     <div className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
