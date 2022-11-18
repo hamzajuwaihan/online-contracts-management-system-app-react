@@ -15,37 +15,34 @@ const NavBar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav ms-auto p-4 p-lg-0">
-                    <NavLink to="/" className="nav-item nav-link active">Home</NavLink>
-                    <Link to="/about" className="nav-item nav-link">About</Link>
+                    <NavLink to="/" className="nav-item nav-link">Home</NavLink>
+                    <NavLink to="/about" className="nav-item nav-link">About</NavLink>
 
-                    <a href="service.html" className="nav-item nav-link">Service</a>
-                    <a href="project.html" className="nav-item nav-link">Project</a>
-                    {
-                        auth.user && (<NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>)
-                    }
-
-                    {
-                        auth.user && (auth.user.role === "admin" ? <NavLink to="/dashboard" className="nav-item nav-link">Dashboard</NavLink> : null)
-
-                    }
-                    {
-                        auth.user && (auth.user.role === "user" ? <NavLink to="/UserPage" className="nav-item nav-link">Contracts</NavLink> : null)
-
-                    }
+                    <NavLink to="/service" className="nav-item nav-link">Service</NavLink>
+                    {/* <a href="project.html" className="nav-item nav-link">Project</a> */}
 
 
-                    <div className="nav-item dropdown">
-                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div className="dropdown-menu bg-light m-0">
-                            <a href="feature.html" className="dropdown-item">Feature</a>
-                            <a href="quote.html" className="dropdown-item">Free Quote</a>
-                            <a href="team.html" className="dropdown-item">Our Team</a>
-                            <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                            <Link to="*" className="dropdown-item">404 Page</Link>
-                        </div>
-                    </div>
+
+
                     <Link to="/contact" className="nav-item nav-link">Contact</Link>
-                    <NavLink to="/login" className=" rounded-0 py-4 px-lg-5 d-lg-block login">Login<i className="fa fa-arrow-right ms-3"></i></NavLink>
+
+                    {auth.user && (<div className="nav-item dropdown">
+                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">{auth.user.name}</a>
+                        <div className="dropdown-menu bg-light m-0">
+                            <NavLink to="/profile" className="dropdown-item">Profile</NavLink>
+                            {
+                                auth.user && (auth.user.role === "admin" ? <NavLink to="/dashboard" className="dropdown-item">Dashboard</NavLink> : null)
+
+                            }
+                            {
+                                auth.user && (auth.user.role === "user" ? <NavLink to="/UserPage" className="dropdown-item">Contracts</NavLink> : null)
+
+                            }
+                            <button className="dropdown-item" onClick={() => auth.logout()}>Sign out</button>
+                        </div>
+                    </div>)}
+                    {!auth.user && (<NavLink to="/login" className=" rounded-0 py-4 px-lg-5 d-lg-block login">Login<i className="fa fa-arrow-right ms-3"></i></NavLink>
+                    )}
                 </div>
 
             </div>

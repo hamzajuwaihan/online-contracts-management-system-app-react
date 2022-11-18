@@ -12,10 +12,10 @@
     display: flex;
     justify-content:center;
 }
-a.active{
+/* a.active{
     background-color: orange !important;
     color: white;
-}
+} */
 .errors{
     color: red;
     font-weight: bold;

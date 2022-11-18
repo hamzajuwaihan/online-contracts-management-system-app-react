@@ -26,8 +26,6 @@ const Login = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-
-
         axios.post('http://localhost/API_7/log.php', data)
 
             .then((result) => {
@@ -119,28 +117,26 @@ const Login = () => {
                     <div className="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
 
                         <form className='mt-5' onSubmit={submitForm}>
-                            <div class="form-floating mb-3">
-                                <input id="email" type="email"
-                                    className="form-control @error('email') is-invalid @enderror" name="email" required
-
+                            <div class="mb-3">
+                                <label htmlFor="floatingInput">Email address</label>
+                                <input id="floatingInput" type="email"
+                                    className="form-control form-control-lg" name="email" required
                                     onChange={handleChange}
                                     value={data.email}
-
                                     autocomplete="email" />
-
-                                <label htmlFor="floatingInput">Email address</label>
                             </div>
                             <p className="errors">{formErrors.email}</p>
 
-
-                            <div class="form-floating mb-3 mt-3">
-                                <input id="password" type="password"
-                                    className="form-control @error('password') is-invalid @enderror"
+                            <label htmlFor="floatingPassword">Password</label>
+                            <br />
+                            <div class="mb-3">
+                                <input id="floatingPassword" type="password"
+                                    className="form-control form-control-lg"
                                     name="password" required
                                     onChange={handleChange}
                                     value={data.password}
                                     autocomplete="new-password" />
-                                <label htmlFor="floatingPassword">Password</label>
+
                             </div>
                             <p className="errors">{formErrors.password}</p>
 

@@ -16,8 +16,9 @@ import Notfound from "./components/404/Notfound";
 import Contact from "./components/contact/Contact";
 import UserPage from "./components/UserPage";
 import Dashboard from "./components/Dashboard";
-
-
+import HeaderServices from "./components/services/HeaderServices";
+import OurServices from "./components/services/OurServices";
+import Services from "./components/services/Services";
 function App() {
   return (
     <>
@@ -60,9 +61,17 @@ function App() {
           <Route
             path="/dashboard"
             element={
-
               <Dashboard />
-
+            }
+          />
+          <Route
+            path="/service"
+            element={
+              <>
+                <HeaderServices />
+                <OurServices />
+                <Services />
+              </>
             }
           />
           <Route path="/contact" element={<Contact />} />
