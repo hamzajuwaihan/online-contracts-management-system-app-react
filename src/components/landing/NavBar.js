@@ -6,8 +6,8 @@ const NavBar = () => {
     const auth = useAuth();
     return (
         <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-            <a href="index.html" className="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
-                <h2 className="m-0 text-primary">Solartec</h2>
+            <a href="http://localhost:3000/" className="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
+                <h2 className="m-0 text-primary"> Sofix</h2>
             </a>
             <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span className="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@ const NavBar = () => {
                     }
                     
                     <div className="nav-item dropdown">
-                        <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <a href="http://localhost:3000/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div className="dropdown-menu bg-light m-0">
                             <a href="feature.html" className="dropdown-item">Feature</a>
                             <a href="quote.html" className="dropdown-item">Free Quote</a>

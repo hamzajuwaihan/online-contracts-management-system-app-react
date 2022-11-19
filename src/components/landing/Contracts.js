@@ -24,7 +24,7 @@ const Contracts = () => {
                             <img className="img-fluid" src="img/98-ForwardContract_2_550x450.jpg" alt="" />
                             <div className="portfolio-btn">
                                 <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="img/98-ForwardContract_2_550x450.jpg" data-lightbox="portfolio"><i className="fa fa-eye"></i></a>
-                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href=""><i className="fa fa-link"></i></a>
+                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="."><i className="fa fa-link"></i></a>
                             </div>
                         </div>
                         <div className="pt-3">
@@ -38,7 +38,7 @@ const Contracts = () => {
                             <img className="img-fluid" src="img/deed_550x450.jpg" alt="" />
                             <div className="portfolio-btn">
                                 <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="img/deed_550x450.jpg" data-lightbox="portfolio"><i className="fa fa-eye"></i></a>
-                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href=""><i className="fa fa-link"></i></a>
+                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="."><i className="fa fa-link"></i></a>
                             </div>
                         </div>
                         <div className="pt-3">
@@ -52,7 +52,7 @@ const Contracts = () => {
                             <img className="img-fluid" src="img/agr_1_550x450.jpg" alt="" />
                             <div className="portfolio-btn">
                                 <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="img/agr_1_550x450.jpg" data-lightbox="portfolio"><i className="fa fa-eye"></i></a>
-                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href=""><i className="fa fa-link"></i></a>
+                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="."><i className="fa fa-link"></i></a>
                             </div>
                         </div>
                         <div className="pt-3">
@@ -66,7 +66,7 @@ const Contracts = () => {
                             <img className="img-fluid" src="img/Recruitment-companies-AD-AR12112020-4-1024x444_550x450.jpg" alt="" />
                             <div className="portfolio-btn">
                                 <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="img/Recruitment-companies-AD-AR12112020-4-1024x444_550x450.jpg" data-lightbox="portfolio"><i className="fa fa-eye"></i></a>
-                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href=""><i className="fa fa-link"></i></a>
+                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="."><i className="fa fa-link"></i></a>
                             </div>
                         </div>
                         <div className="pt-3">
@@ -80,7 +80,7 @@ const Contracts = () => {
                             <img className="img-fluid" src="img/agreement-17115865_550x450.jpg" alt="" />
                             <div className="portfolio-btn">
                                 <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="img/agreement-17115865_550x450.jpg" data-lightbox="portfolio"><i className="fa fa-eye"></i></a>
-                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href=""><i className="fa fa-link"></i></a>
+                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="."><i className="fa fa-link"></i></a>
                             </div>
                         </div>
                         <div className="pt-3">
@@ -94,7 +94,7 @@ const Contracts = () => {
                             <img className="img-fluid" src="img/things-to-do-before_550x450.jpg" alt="" />
                             <div className="portfolio-btn">
                                 <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="img/things-to-do-before_550x450.jpg" data-lightbox="portfolio"><i className="fa fa-eye"></i></a>
-                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href=""><i className="fa fa-link"></i></a>
+                                <a className="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="."><i className="fa fa-link"></i></a>
                             </div>
                         </div>
                         <div className="pt-3">

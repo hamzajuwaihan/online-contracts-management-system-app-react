@@ -16,7 +16,7 @@ const About = () => {
                             <h1 className="mb-4">More than 25+ years in contract management</h1>
                             <p>We are a company interested in concluding contracts for major companies, and we are working to attract all beneficiaries by providing them with facilities</p>
                            
-                            <a href="" className="btn btn-primary rounded-pill py-3 px-5 mt-3">Explore More</a>
+                            <a href="http://localhost:3000/about" className="btn btn-primary rounded-pill py-3 px-5 mt-3">Explore More</a>
                         </div>
                     </div>
                 </div>
