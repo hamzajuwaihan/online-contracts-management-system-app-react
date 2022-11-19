@@ -1,10 +1,10 @@
 import React from 'react'
 import { useAuth } from '../auth'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
     const auth = useAuth();
-    console.log(auth.user)
+    const navigate = useNavigate();
     return (
         <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
             <a href="index.html" className="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
@@ -32,13 +32,15 @@ const NavBar = () => {
                             <NavLink to="/profile" className="dropdown-item">Profile</NavLink>
                             {
                                 auth.user && (auth.user.role === "admin" ? <NavLink to="/dashboard" className="dropdown-item">Dashboard</NavLink> : null)
-
                             }
                             {
                                 auth.user && (auth.user.role === "user" ? <NavLink to="/UserPage" className="dropdown-item">Contracts</NavLink> : null)
 
                             }
-                            <button className="dropdown-item" onClick={() => auth.logout()}>Sign out</button>
+                            <button className="dropdown-item" onClick={() => {
+                                auth.logout();
+                                
+                            }}>Sign out</button>
                         </div>
                     </div>)}
                     {!auth.user && (<NavLink to="/login" className=" rounded-0 py-4 px-lg-5 d-lg-block login">Login<i className="fa fa-arrow-right ms-3"></i></NavLink>

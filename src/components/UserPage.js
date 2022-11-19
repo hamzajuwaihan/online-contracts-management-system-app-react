@@ -31,7 +31,7 @@ export default function UserPage() {
       .then(function (response) {
         console.log(response.data);
         close.current.click()
-
+        getContracts();
         navigate("/UserPage");
       });
   };

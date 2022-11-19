@@ -86,7 +86,7 @@ const Dashboard = () => {
                     </div>
                     <div className="row">
 
-                        {contracts.map((contract, key) => { return <AdminContract key={key} contract={contract} /> }
+                        {contracts.map((contract, key) => { return <AdminContract key={key} contract={contract} handleContracts={getContracts} /> }
                         )}
                     </div>
                 </div>

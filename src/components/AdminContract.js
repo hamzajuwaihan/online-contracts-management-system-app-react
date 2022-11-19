@@ -3,26 +3,25 @@ import React, { useRef, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const AdminContract = ({ contract }) => {
-    const [showCompany, setShowCompany] = useState(false);
-    const [showContract, setShowContract] = useState(false);
-    const handleCloseCompany = () => setShowCompany(false);
-    const handleShowCompany = () => setShowCompany(true);
-    const handleCloseContract = () => setShowContract(false);
-    const handleShowContract = () => setShowContract(true);
+const AdminContract = ({ contract, handleContracts }) => {
+    const [showDelete, setShowDelete] = useState(false);
+    const [showEdit, setShowEdit] = useState(false);
+    const handleCloseDelete = () => setShowDelete(false);
+    const handleShowDelete = () => setShowDelete(true);
+    const handleCloseEdit = () => setShowEdit(false);
+    const handleShowEdit = () => setShowEdit(true);
     const deleteRef = useRef(null)
     const editRef = useRef(null);
     const date = new Date();
     const contractDate = new Date(contract.exprtion_date);
     const diffTime = (contractDate - date);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     const EditContract = (e) => {
         e.preventDefault();
         console.log("Edit Contract");
         editRef.current.click();
-        axios.put(`http://localhost/API_7/admin.php/${contract.contract_id}`, inputs ).then(function(response){
+        axios.put(`http://localhost/API_7/admin.php/${contract.contract_id}`, inputs).then(function (response) {
             console.log(response.data);
-          
+            handleContracts();
         });
     }
     const [inputs, setInputs] = useState([]);
@@ -30,14 +29,14 @@ const AdminContract = ({ contract }) => {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setInputs((values) => ({ ...values, [name]: value,contract_id:contract.contract_id }));
+        setInputs((values) => ({ ...values, [name]: value, contract_id: contract.contract_id }));
         console.log(inputs)
     };
 
 
 
-   
-       
+
+
     let badge = '';
     if (contract.status === "APPROVED") {
         badge = 'badge-soft-success';
@@ -48,25 +47,19 @@ const AdminContract = ({ contract }) => {
     } else {
         badge = 'badge-soft-danger';
     }
-    console.log(contract.exprtion_date + " " + diffDays);
-    /*
-    current :2020-12-01
-    experation : 2021-01-01
-    
-    */
+
     const deleteContract = (e) => {
         e.preventDefault();
         deleteRef.current.click();
-       
+
         console.log("delete contract");
     }
-    const delete_Contract =(id)=>{
+    const delete_Contract = (id) => {
 
-        axios.delete(`http://localhost/API_7/admin.php/${id}/delete`).then(function(response){
-           
-            
+        axios.delete(`http://localhost/API_7/admin.php/${id}/delete`).then(function (response) {
+            handleContracts();
         })
-     
+
     }
 
     return (
@@ -104,16 +97,16 @@ const AdminContract = ({ contract }) => {
                             </p>
                         </div>
                         <div className="d-flex gap-2 pt-4">
-                            <Button variant="primary" onClick={handleShowCompany}>
+                            <Button variant="primary" onClick={handleShowEdit}>
                                 <i className="bx bx-user me-1" /> Edit Contract
                             </Button>
 
 
-                            <Button variant="danger" onClick={handleShowContract} >
+                            <Button variant="danger" onClick={handleShowDelete} >
                                 <i className="bx bx-message-square-dots me-1" /> Delete Contract
                             </Button>
 
-                            <Modal show={showContract} onHide={handleCloseContract} onClick={() => delete_Contract(contract.contract_id)}>
+                            <Modal show={showDelete} onHide={handleCloseDelete} onClick={() => delete_Contract(contract.contract_id)}>
                                 <Modal.Header closeButton>
                                     <Modal.Title> Delete {contract.contract_name}</Modal.Title>
                                 </Modal.Header>
@@ -124,10 +117,10 @@ const AdminContract = ({ contract }) => {
                                     </Modal.Body>
                                     <Modal.Footer>
                                         <Button variant="secondary" data-bs-dismiss="modal"
- >
+                                        >
                                             Close
                                         </Button>
-                                        <Button type='submit' variant="danger" onClick={handleCloseContract} ref={deleteRef}>
+                                        <Button type='submit' variant="danger" onClick={handleCloseDelete} ref={deleteRef}>
                                             Delete
                                         </Button>
                                     </Modal.Footer>
@@ -140,7 +133,7 @@ const AdminContract = ({ contract }) => {
                 </div>
 
             </div>
-            <Modal show={showCompany} onHide={handleCloseCompany} >
+            <Modal show={showEdit} onHide={handleCloseEdit} >
                 <Modal.Header closeButton>
                     <Modal.Title> PhyllisGatlin@spy.com</Modal.Title>
                 </Modal.Header>
@@ -337,11 +330,11 @@ const AdminContract = ({ contract }) => {
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary"data-bs-dismiss="modal"
->
+                        <Button variant="secondary" data-bs-dismiss="modal"
+                        >
                             Close
                         </Button>
-                        <Button variant="primary" type="submit" onClick={EditContract} ref={editRef}>
+                        <Button variant="primary" type="submit" onClick={handleCloseEdit} ref={editRef}>
                             Edit Contract
                         </Button>
                     </Modal.Footer>
