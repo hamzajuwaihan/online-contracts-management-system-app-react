@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 const Register = () => {
 
 
@@ -19,11 +20,16 @@ const Register = () => {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
     setFormErrors(validate(data));
+    
   };
 
   const submitForm = (e) => {
     e.preventDefault();
     setFormErrors(validate(data));
+
+
+
+  navigate('/login');
     
       axios.post("http://localhost/API_7/reg.php", data)
       .then((result) => {
@@ -58,7 +64,9 @@ const Register = () => {
     } else if (values.password.length > 12) {
       errors.password = "Password must be 12 characters or less";
     }
-
+    // if(values.phone===true && values.email===true && values.password ===true ){
+    //   navigate('/');
+    // }
     return errors;
   };
 
@@ -87,20 +95,21 @@ const Register = () => {
         </li>
       </ul>
       <form onSubmit={submitForm}>
+      <h6>Name</h6>
         <div class="form-floating mb-3">
           <input
             id="name"
             type="text"
-            className="form-control @error('name') is-invalid @enderror"
+            className="form-control"
             name="name"
-        
+            placeholder="name"
             onChange={handleChange}
             value={data.name}
             
-          />
-          <label htmlFor="name">Name</label>
+          />  
         </div>
         <p className="errors">{formErrors.name}</p>
+        <h6>Email</h6>
         <div class="form-floating mb-3">
           <input
             id="email"
@@ -110,22 +119,25 @@ const Register = () => {
             onChange={handleChange}
             value={data.email}
             autoComplete="email"
+            placeholder="Email address"
           />
-          <label htmlFor="email">Email address</label>
+          
         </div>
         <p className="errors">{formErrors.email}</p>
+<h6>phone</h6>
         <div class="form-floating mb-3">
-          <input
+          <input 
             type="text"
             class="form-control"
             id="phone"
             name="phone"
+            placeholder="phone"
             onChange={handleChange}
           />
-          <label htmlFor="phone">phone</label>
+        
         </div>
-
-
+ 
+<h6>Password</h6>
         <div class="form-floating mb-3 mt-3">
           <input
             id="password"
@@ -134,9 +146,10 @@ const Register = () => {
             name="password"
             onChange={handleChange}
             value={data.password}
+            placeholder="Password"
             autoComplete="new-password"
           />
-          <label htmlFor="floatingPassword">Password</label>
+         
         </div>
         <p className="errors">{formErrors.password}</p>
 

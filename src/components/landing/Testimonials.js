@@ -19,7 +19,7 @@ const Testimonials = () => {
                             </div>
                         </div>
                         <div className="testimonial-text text-center rounded p-4">
-                            <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                            <p>Very good.</p>
                             <h5 className="mb-1">Client Name</h5>
                             <span className="fst-italic">Profession</span>
                         </div>
@@ -32,7 +32,7 @@ const Testimonials = () => {
                             </div>
                         </div>
                         <div className="testimonial-text text-center rounded p-4">
-                            <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                            <p>Very good.</p>
                             <h5 className="mb-1">Client Name</h5>
                             <span className="fst-italic">Profession</span>
                         </div>
@@ -45,7 +45,7 @@ const Testimonials = () => {
                             </div>
                         </div>
                         <div className="testimonial-text text-center rounded p-4">
-                            <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                            <p>Very good.</p>
                             <h5 className="mb-1">Client Name</h5>
                             <span className="fst-italic">Profession</span>
                         </div>

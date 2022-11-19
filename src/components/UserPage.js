@@ -77,7 +77,7 @@ export default function UserPage() {
             <div className="mb-3">
               <h5 className="card-title">
                 Contact List{" "}
-                <span className="text-muted fw-normal ms-2">(834)</span>
+                <span className="text-muted fw-normal ms-2">{contracts.length}</span>
               </h5>
             </div>
           </div>

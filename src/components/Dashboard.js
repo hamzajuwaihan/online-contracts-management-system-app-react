@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import AdminContract from './AdminContract';
 import { useAuth } from './auth';
+import Contact from './contact/Contact';
 import SingleContract from './SingleContract';
 
 const Dashboard = () => {
@@ -67,20 +68,13 @@ const Dashboard = () => {
                             <div className="mb-3">
                                 <h5 className="card-title">
                                     Contact List{" "}
-                                    <span className="text-muted fw-normal ms-2">(834)</span>
+                                    <span className="text-muted fw-normal ms-2">{contracts.length}</span>
                                 </h5>
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"
-                                >
-                                    add new contract
-                                </button>
+                              
                             </div>
                         </div>
                     </div>

@@ -7,8 +7,8 @@ import Testimonials from '../landing/Testimonials';
 function Services() {
   return (
     <>
-   <HeaderServices />
-  <OurServices />
+   
+
   <ChooseUs />
   <Testimonials />
   

@@ -1,4 +1,7 @@
 import React from 'react'
+import q from './AlQassem_Oweida.jpg';
+import e from './WhatsApp_Image_2022-11-12_at_10.21.50_PM.jpeg.jpg';
+import h from './index.jpg';
 
 export const Employees = () => {
     return (
@@ -12,15 +15,15 @@ export const Employees = () => {
                     <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div className="team-item rounded overflow-hidden">
                             <div className="d-flex">
-                                <img className="img-fluid w-75" src="img/garota7_475x600.jpeg" alt="" />
+                                <img className="img-fluid w-75" src={h} alt="../404/AlQassem_Oweida.jpg" />
                                 <div className="team-social w-25">
-                                    <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href="https://ar-ar.facebook.com/"><i classNa00000000000000000000000me="fab fa-facebook-f"></i></a>
+                                <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href="https://ar-ar.facebook.com/"><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href="https://twitter.com/"><i className="fab fa-twitter"></i></a>
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href="https://www.instagram.com/"><i className="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                             <div className="p-4">
-                                <h5>Salma Naim</h5>
+                                <h5>Hasan abu hashem</h5>
                                 <span>Designation</span>
                             </div>
                         </div>
@@ -28,7 +31,7 @@ export const Employees = () => {
                     <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div className="team-item rounded overflow-hidden">
                             <div className="d-flex">
-                                <img className="img-fluid w-75" src="img/c1_475x600.jpg" alt="" />
+                                <img className="img-fluid w-75" src={q} alt="" />
                                 <div className="team-social w-25">
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href="https://ar-ar.facebook.com/"><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href="https://twitter.com/"><i className="fab fa-twitter"></i></a>
@@ -36,7 +39,7 @@ export const Employees = () => {
                                 </div>
                             </div>
                             <div className="p-4">
-                                <h5>Sara Ahmed</h5>
+                                <h5>Al qassem qweida</h5>
                                 <span>Designation</span>
                             </div>
                         </div>
@@ -44,7 +47,7 @@ export const Employees = () => {
                     <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div className="team-item rounded overflow-hidden">
                             <div className="d-flex">
-                                <img className="img-fluid w-75" src="img/59as_475x600.jpg" alt="" />
+                                <img className="img-fluid w-75" style={{height:'420px'}} src={e} alt=""  />
                                 <div className="team-social w-25">
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href="https://ar-ar.facebook.com/"><i className="fab fa-facebook-f"></i></a>
                                     <a className="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href="https://twitter.com/"><i className="fab fa-twitter"></i></a>
@@ -52,7 +55,7 @@ export const Employees = () => {
                                 </div>
                             </div>
                             <div className="p-4">
-                                <h5>Mariam Mohammed</h5>
+                                <h5>Emran abu azzam</h5>
                                 <span>Designation</span>
                             </div>
                         </div>

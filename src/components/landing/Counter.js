@@ -13,7 +13,7 @@ const Counter = () => {
                             <h1 className="mb-0" data-toggle="counter-up">3453</h1>
                         </div>
                         <h5 className="mb-3">Happy Customers</h5>
-                        <span>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit</span>
+                        <span>– a reliable, fast and safe solution</span>
                     </div>
                     <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
                         <div className="d-flex align-items-center mb-4">
@@ -23,7 +23,7 @@ const Counter = () => {
                             <h1 className="mb-0" data-toggle="counter-up">4234</h1>
                         </div>
                         <h5 className="mb-3">Project Done</h5>
-                        <span>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit</span>
+                        <span>– a reliable, fast and safe solution</span>
                     </div>
                     <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
                         <div className="d-flex align-items-center mb-4">
@@ -33,7 +33,7 @@ const Counter = () => {
                             <h1 className="mb-0" data-toggle="counter-up">3123</h1>
                         </div>
                         <h5 className="mb-3">Awards Win</h5>
-                        <span>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit</span>
+                        <span>– transferability of management in case of illness or departure of employee</span>
                     </div>
                     <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                         <div className="d-flex align-items-center mb-4">
@@ -43,7 +43,7 @@ const Counter = () => {
                             <h1 className="mb-0" data-toggle="counter-up">1831</h1>
                         </div>
                         <h5 className="mb-3">Expert Workers</h5>
-                        <span>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit</span>
+                        <span>– greater chance of realizing savings</span>
                     </div>
                 </div>
             </div>
