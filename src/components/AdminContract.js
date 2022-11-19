@@ -134,7 +134,7 @@ const AdminContract = ({ contract, handleContracts }) => {
             </div>
             <Modal show={showEdit} onHide={handleCloseEdit} >
                 <Modal.Header closeButton>
-                    <Modal.Title> PhyllisGatlin@spy.com</Modal.Title>
+                    <Modal.Title> {contract.contract_name}</Modal.Title>
                 </Modal.Header>
                 <form onSubmit={EditContract}>
                     <Modal.Body >
