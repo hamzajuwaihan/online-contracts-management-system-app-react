@@ -17,7 +17,6 @@ const AdminContract = ({ contract, handleContracts }) => {
     const diffTime = (contractDate - date);
     const EditContract = (e) => {
         e.preventDefault();
-        console.log("Edit Contract");
         editRef.current.click();
         axios.put(`http://localhost/API_7/admin.php/${contract.contract_id}`, inputs).then(function (response) {
             console.log(response.data);
@@ -250,7 +249,6 @@ const AdminContract = ({ contract, handleContracts }) => {
                                 className="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
-                                // onChange={handleChange}
                                 value={contract.warranty_start_date}
                                 disabled
                             />
@@ -277,7 +275,6 @@ const AdminContract = ({ contract, handleContracts }) => {
                                 className="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
-                                // onChange={handleChange}
                                 value={contract.company_name}
                                 disabled
                             />
@@ -291,7 +288,6 @@ const AdminContract = ({ contract, handleContracts }) => {
                                 className="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
-                                // onChange={handleChange}
                                 disabled
                                 value={contract.address}
 
@@ -306,7 +302,6 @@ const AdminContract = ({ contract, handleContracts }) => {
                                 className="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
-                                // onChange={handleChange}
                                 value={contract.company_phone}
                                 disabled
                             />
@@ -323,7 +318,6 @@ const AdminContract = ({ contract, handleContracts }) => {
                                 className="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
-                                // onChange={handleChange}
                                 value={contract.liaison_officer_name}
                                 disabled
                             />

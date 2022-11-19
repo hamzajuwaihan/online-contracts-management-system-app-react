@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 17, 2022 at 09:30 AM
+-- Generation Time: Nov 19, 2022 at 03:29 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -51,11 +51,8 @@ CREATE TABLE `contract` (
 --
 
 INSERT INTO `contract` (`contract_id`, `contract_name`, `Signing_date`, `exprtion_date`, `total_cost`, `amount`, `items`, `Legal_officer_name`, `employee_id`, `warranty_start_date`, `warranty__end_date`, `company_name`, `address`, `company_phone`, `liaison_officer_name`, `status`) VALUES
-(2, 'ee', '2022-11-03', '2022-11-24', 3, 3, 'laptop', 'mohammed aldabee', 1, '2022-11-23', '2022-11-24', 'student', 'jordan', '0000000000', 'eeeeee', 'WAITING'),
 (3, 'eeeee', '2022-11-01', '2022-12-01', 1, 1, 'laptop', 'mohammed aldabee', 1, '2022-11-16', '2022-11-27', 'student', 'jordan', '9999999', 'ffffffff', 'WAITING'),
-(4, 'car', '2022-12-01', '2022-12-21', 1, 1, 'laptop', 'mohammed aldabee', 1, '2022-11-30', '2022-11-30', 'eeeeeeeeeee', 'ddddddddddddddd', '2222222222', 'sssssssssssss', 'WAITING'),
-(5, 'ddddd', '2022-11-10', '2022-11-23', 3, 3, 'ddddddddd', 'dddddddddddddd', 1, '2022-11-11', '2022-11-01', 'ddddddddddd', 'dddddddddddddddddd', 'ddddddddddddddddd', 'ddddddddddddddddddd', 'WAITING'),
-(6, 'ee', '2022-11-03', '2022-11-24', 3, 3, 'laptop', 'mohammed aldabee', 1, '2022-11-23', '2022-11-24', 'student', 'jordan', '0000000000', 'eeeeee', 'WAITING');
+(6, 'ee', '2022-11-03', '2022-11-24', 3, 3, 'laptop', 'mohammed aldabee', 1, '2022-11-23', '2022-11-24', 'student', 'jordan', '0000000000', 'eeeeee', 'REJECTED');
 
 -- --------------------------------------------------------
 
@@ -104,8 +101,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `department_id`, `phone`, `role`, `password`) VALUES
-(1, 'Ziad Wassel', 'ziad.ab@gmail.com', NULL, '+962 2787987915', 'user', 'h15234684'),
-(12, 'Ziad Wassel Abazeed', 'zi@gmail.com', NULL, '+962 2787987915', 'user', 'h15234684');
+(1, 'Ziad Wassel', 'ziad.ab@gmail.com', NULL, '+962 2787987915', 'user', 'h1234567'),
+(12, 'Ziad Wassel Abazeed', 'zi@gmail.com', NULL, '+962 2787987915', 'admin', 'h1234567');
 
 --
 -- Indexes for dumped tables
