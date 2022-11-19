@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useRef, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -19,7 +20,24 @@ const AdminContract = ({ contract }) => {
         e.preventDefault();
         console.log("Edit Contract");
         editRef.current.click();
+        axios.put(`http://localhost/API_7/admin.php/${contract.contract_id}`, inputs ).then(function(response){
+            console.log(response.data);
+          
+        });
     }
+    const [inputs, setInputs] = useState([]);
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs((values) => ({ ...values, [name]: value,contract_id:contract.contract_id }));
+        console.log(inputs)
+    };
+
+
+
+   
+       
     let badge = '';
     if (contract.status === "APPROVED") {
         badge = 'badge-soft-success';
@@ -39,8 +57,16 @@ const AdminContract = ({ contract }) => {
     const deleteContract = (e) => {
         e.preventDefault();
         deleteRef.current.click();
-
+       
         console.log("delete contract");
+    }
+    const delete_Contract =(id)=>{
+
+        axios.delete(`http://localhost/API_7/admin.php/${id}/delete`).then(function(response){
+           
+            
+        })
+     
     }
 
     return (
@@ -66,15 +92,15 @@ const AdminContract = ({ contract }) => {
                         <div className="mt-3 pt-1">
                             <p className="text-muted mb-0">
                                 <i className="mdi mdi-phone font-size-15 align-middle pe-2 text-primary" />{" "}
-
+                                {contract.company_phone}
                             </p>
                             <p className="text-muted mb-0 mt-2">
-                                <i className="mdi mdi-email font-size-15 align-middle pe-2 text-primary" />{" "}
-                                PhyllisGatlin@spy.com
+                                <i className="mdi mdi-home font-size-15 align-middle pe-2 text-primary" />{" "}
+                                {contract.company_name}
                             </p>
                             <p className="text-muted mb-0 mt-2">
                                 <i className="mdi mdi-google-maps font-size-15 align-middle pe-2 text-primary" />{" "}
-                                52 Ilchester MYBSTER 9WX
+                                {contract.address}
                             </p>
                         </div>
                         <div className="d-flex gap-2 pt-4">
@@ -83,11 +109,11 @@ const AdminContract = ({ contract }) => {
                             </Button>
 
 
-                            <Button variant="danger" onClick={handleShowContract}>
+                            <Button variant="danger" onClick={handleShowContract} >
                                 <i className="bx bx-message-square-dots me-1" /> Delete Contract
                             </Button>
 
-                            <Modal show={showContract} onHide={handleCloseContract}>
+                            <Modal show={showContract} onHide={handleCloseContract} onClick={() => delete_Contract(contract.contract_id)}>
                                 <Modal.Header closeButton>
                                     <Modal.Title> Delete {contract.contract_name}</Modal.Title>
                                 </Modal.Header>
@@ -97,7 +123,8 @@ const AdminContract = ({ contract }) => {
 
                                     </Modal.Body>
                                     <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleCloseContract} >
+                                        <Button variant="secondary" data-bs-dismiss="modal"
+ >
                                             Close
                                         </Button>
                                         <Button type='submit' variant="danger" onClick={handleCloseContract} ref={deleteRef}>
@@ -120,9 +147,9 @@ const AdminContract = ({ contract }) => {
                 <form onSubmit={EditContract}>
                     <Modal.Body >
                         <div className="form-group mb-3">
-                            <label htmlFor="exampleInputEmail1">contract name:</label>
+                            <label htmlFor="exampleInputEmail1">contract status:</label>
 
-                            <select className="form-control" aria-label="Default select example" style={{ backgroundColor: "white" }}>
+                            <select onChange={handleChange} name="status" className="form-control" aria-label="Default select example" style={{ backgroundColor: "white" }}>
                                 <option selected disabled>Open this select menu</option>
                                 <option value="APPROVED">APPROVED</option>
                                 <option value="WAITING">WAITING</option>
@@ -310,10 +337,11 @@ const AdminContract = ({ contract }) => {
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={handleCloseCompany}>
+                        <Button variant="secondary"data-bs-dismiss="modal"
+>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleCloseCompany} ref={editRef}>
+                        <Button variant="primary" type="submit" onClick={EditContract} ref={editRef}>
                             Edit Contract
                         </Button>
                     </Modal.Footer>
