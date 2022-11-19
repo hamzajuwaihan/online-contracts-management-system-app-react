@@ -53,9 +53,7 @@ function App() {
           <Route
             path="/UserPage"
             element={
-
               <UserPage />
-
             }
           />
           <Route

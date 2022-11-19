@@ -16,7 +16,6 @@ const Welcome = () => {
             <Counter />
             <About />
             <ChooseUs />
-            <Contracts />
             <Youtube />
             <Employees />
             <Testimonials />
