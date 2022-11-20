@@ -9,6 +9,10 @@ const SingleContract = ({ contract }) => {
     const handleShowCompany = () => setShowCompany(true);
     const handleCloseContract = () => setShowContract(false);
     const handleShowContract = () => setShowContract(true);
+    const date = new Date();
+    const contractDate = new Date(contract.exprtion_date);
+    const diffTime = (contractDate - date);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     return (
         <>
@@ -23,11 +27,14 @@ const SingleContract = ({ contract }) => {
                                 <h5 className="font-size-16 mb-1">
                                     <a href="#" className="text-dark">
                                         {contract.contract_name}
+                                        {diffDays === 3 ? <span className="badge badge-soft-warning mb-0">3 days left</span> : <span className="badge badge-soft-success mb-0">{diffDays} days left</span>}
                                     </a>
                                 </h5>
                                 <span className="badge badge-soft-success mb-0">
                                     {contract.status}
+
                                 </span>
+
                             </div>
                         </div>
                         <div className="mt-3 pt-1">
@@ -70,8 +77,7 @@ const SingleContract = ({ contract }) => {
                                     <p>Warranty start date: {contract.warranty_start_date}</p>
                                     <p>Warranty end date: {contract.warranty__end_date}</p>
                                     <p>Liaison officer name: {contract.liaison_officer_name}</p>
-
-                                                </Modal.Body>
+                                </Modal.Body>
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={handleCloseContract}>
                                         Close
@@ -105,7 +111,7 @@ const SingleContract = ({ contract }) => {
                     <Button variant="secondary" onClick={handleCloseCompany}>
                         Close
                     </Button>
-                    
+
                 </Modal.Footer>
             </Modal>
         </>
